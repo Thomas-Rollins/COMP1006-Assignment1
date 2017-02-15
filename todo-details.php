@@ -2,17 +2,17 @@
  <html lang="en-ca">
  	<head>
  		<meta charset="utf-8" />
-		<title>COMP1006 Assignment 1</title>
+		<title>Todo Details</title>
 		<link rel="stylesheet" href="assets/css/styles.css" />
 	</head>
 	<body>
 		<header id="global-nav">
 			<nav id="global">
 				<ul class="nav">
-					<li><a class="active" href="index.html" title="Home Page">Home Page</a></li>
-					<li><a href="todo-list.html" title="Todo List">Todo List</a></li>
-					<li><a href="todo-details.html" title="Todo Details">Todo Details</a></li>
-					<li><a href="login-page.html" title="Login Page">Log In</a></li>
+					<li><a href="index.php" title="Home Page">Home Page</a></li>
+					<li><a href="todo-list.php" title="Todo List">Todo List</a></li>
+					<li><a class="active" href="todo-details.php" title="Todo Details">Todo Details</a></li>
+					<li><a href="login-page.php" title="Login Page">Log In</a></li>
 				</ul>
 			</nav>
 		</header>

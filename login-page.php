@@ -9,16 +9,16 @@
 		<header id="global-nav">
 			<nav id="global">
 				<ul class="nav">
-					<li><a href="index.html" title="Home Page">Home Page</a></li>
-					<li><a href="todo-list.html" title="Todo List">Todo List</a></li>
-					<li><a href="todo-details.html" title="Todo Details">Todo Details</a></li>
-					<li><a class="active" href="login-page.html" title="Login Page">Log In</a></li>
+					<li><a href="index.php" title="Home Page">Home Page</a></li>
+					<li><a href="todo-list.php" title="Todo List">Todo List</a></li>
+					<li><a href="todo-details.php" title="Todo Details">Todo Details</a></li>
+					<li><a class="active" href="login-page.php" title="Login Page">Log In</a></li>
 				</ul>
 			</nav>
 		</header>
 		<main>
       <h2>Put login form here...</h2>
-      <form id=login action="assets/php/process-login-form.php" method="post">
+      <form id=login action="./assets/php/process-login-form.php" method="post">
         <input type="hidden" name="form-sent" value="1" />
         <fieldset>
           <legend>Login credentials</legend>
@@ -28,7 +28,7 @@
           </div>
           <div>
             <label for"password">Password</label>
-            <input type="password" name="password" id="password" required size="25" maxlength="128" placeholder="Password" />
+            <input type="password" name="password" id="password" required size="25" maxlength="63" placeholder="Password" />
           </div>
         </fieldset>
         <button type="submit">Log in</button>
