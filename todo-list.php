@@ -1,21 +1,14 @@
 <?php
-//include_once ('database.php');
+include_once('session-info.php');
+include_once('database.php');
 
-$dsn = 'mysql:host=localhost:3307;dbname=comp1006_assignment1';
-$userName = 'root';
-$password = '';
-
-
-try {
-    // instantiates a new pdo - an db object
-    $db = new PDO($dsn, $userName, $password);
-}
-catch(PDOException $e) {
-    $message = $e->getMessage();
-    echo "An error occurred: " . $message;
+if(!isset($_SESSION['login_user']))
+{
+	echo('You must Login to view this page.');
+  header('location: index.php');
 }
 
-$query = "SELECT * FROM todo_list"; // SQL statement
+$query = "SELECT * FROM todo_list ORDER BY id ASC"; // SQL statement
 $statement = $db->prepare($query); // encapsulate the sql statement
 $statement->execute(); // run on the db server
 $todo = $statement->fetchAll(); // returns an array
@@ -35,18 +28,22 @@ $statement->closeCursor(); // close the connection
 				<ul class="nav">
 					<li><a href="index.php" title="Home Page">Home Page</a></li>
 					<li><a class="active" href="todo-list.php" title="Todo List">Todo List</a></li>
-					<li><a href="todo-details.php" title="Todo Details">Todo Details</a></li>
-					<li><a href="login-page.php" title="Login Page">Log In</a></li>
+					<li><a href="todo-details.php?todo_id=0" title="Add new Todo">Add New Todo</a></li>
+					<li><?php if(!isset($login_session)){
+            echo('<a href=\'login-page.php\' title=\'Login Page\'>Log In</a>');
+          }else {
+              echo('<a href=\'logout-page.php\' title=\'Logout Page\'>Log Out</a>');
+            }?></li>
 				</ul>
 			</nav>
 		</header>
-		<main>
+		<main class="main">
 			<section>
 				<article>
-<br><br><br><br>
-          <table class="">
+          <br><br><br><br> <!-- force newlines -->
+          <h1>Welcome: <i><?php echo $login_session; ?></i></h1>
+          <table>
               <tr>
-                  <th>ID</th>
                   <th>Name</th>
                   <th>Notes</th>
                   <th>Completed</th>
@@ -54,12 +51,27 @@ $statement->closeCursor(); // close the connection
               </tr>
               <?php foreach($todo as $todo) : ?>
                   <tr>
-                      <td><?php echo $todo['id'] ?></td>
-                      <td><?php echo $todo['name'] ?></td>
-                      <td><?php echo $todo['notes'] ?></td>
-                      <td><?php echo $todo['completed'] ?></td>
-                      <td><a class="" href="todo-details.php?todo_id=<?php echo $todo['id'] ?>"><i class="fa fa-pencil-square-o"></i> Edit</a></td>
-                      <td><a class="btn btn-danger" href="delete-db-entry.php?todo_id=<?php echo $todo['id'] ?>"><i class="fa fa-trash-o"></i> Delete</a></td>
+										<?php if($todo['completed'] == 1){
+											echo('</del><td><del>');
+										} else {
+											echo('<td>');
+										}?><?php echo $todo['name'] ?></td>
+										<?php if($todo['completed'] == 1){
+											echo('</del><td><del>');
+										} else {
+											echo('<td class=\'notes\'>');
+										}?><?php echo $todo['notes'] ?></td>
+										<?php if($todo['completed'] == 1){
+											echo('</del><td class=\'complete\'>');
+										} else {
+											echo('<td>');
+										}?><?php if($todo['completed'] == 1){
+											echo('YES');
+										} else {
+											echo('NO');
+										}?></td>
+                      <td class="edit"><a href="todo-details.php?todo_id=<?php echo $todo['id'] ?>"><i class=""></i> Edit</a></td>
+                      <td class="delete"><a href="delete-db-entry.php?todo_id=<?php echo $todo['id'] ?>"><i class=""></i> Delete</a></td>
                   </tr>
               <?php endforeach; ?>
 

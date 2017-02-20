@@ -1,22 +1,12 @@
 <?php
-$dsn = 'mysql:host=localhost:3307;dbname=comp1006_assignment1';
-$userName = 'root';
-$password = '';
-
-
-try {
-    // instantiates a new pdo - an db object
-    $db = new PDO($dsn, $userName, $password);
-}
-catch(PDOException $e) {
-    $message = $e->getMessage();
-    echo "An error occurred: " . $message;
-}
+include_once('session-info.php');
+include_once('database.php');
 
 
 $todoID = $_GET['todo_id'];
 
 if($todoID == 0) {
+    $todo = null;
     $todoID = null;
     $isAddition = 1;
 } else {
@@ -42,8 +32,12 @@ if($todoID == 0) {
 				<ul class="nav">
 					<li><a href="index.php" title="Home Page">Home Page</a></li>
 					<li><a href="todo-list.php" title="Todo List">Todo List</a></li>
-					<li><a class="active" href="todo-details.php" title="Todo Details">Todo Details</a></li>
-					<li><a href="login-page.php" title="Login Page">Log In</a></li>
+					<li><a class="active" href="todo-details.php?todo_id=0" title="Add new Todo">Add New Todo</a></li>
+          <li><?php if(!isset($login_session)){
+            echo('<a href=\'login-page.php\' title=\'Login Page\'>Log In</a>');
+          }else {
+              echo('<a href=\'logout-page.php\' title=\'Logout Page\'>Log Out</a>');
+            }?></li>
 				</ul>
 			</nav>
 		</header>
@@ -79,7 +73,8 @@ if($todoID == 0) {
                       wrap="soft"><?php echo $todo['notes']; ?></textarea>
 
                       <input type="hidden" name="isAddition" hidden value="<?php echo $isAddition; ?>">
-                      <button type="submit" id="submitButton" class="btn btn-primary">Submit</button>
+                      <button type="submit" id="submitButton" name="submit">Submit</button>
+                      <button type="submit" id="cancel" name="submit" value="cancel">Cancel</button>
 </form>
                   </div>
               </div>
@@ -90,11 +85,3 @@ if($todoID == 0) {
 		</main>
 	</body>
 </html>
-<?php
-try {
-
-} catch ()
-{
-
-}
-?>

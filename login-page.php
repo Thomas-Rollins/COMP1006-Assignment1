@@ -1,3 +1,10 @@
+<?php
+
+if(isset($_SESSION['login_user'])){
+  header('todo-list.php');
+}
+$attempt = $_GET['attempt'];
+?>
 <!DOCTYPE html>
  <html lang="en-ca">
  	<head>
@@ -10,15 +17,21 @@
 			<nav id="global">
 				<ul class="nav">
 					<li><a href="index.php" title="Home Page">Home Page</a></li>
-					<li><a href="todo-list.php" title="Todo List">Todo List</a></li>
-					<li><a href="todo-details.php" title="Todo Details">Todo Details</a></li>
-					<li><a class="active" href="login-page.php" title="Login Page">Log In</a></li>
+          <?php if(isset($login_session)){
+            echo('<li><a href=\'todo-list.php\' title=\'Todo List\'>Todo List</a></li>
+  					<li><a href=\'todo-details.php?todo_id=0\' title=\'Add new Todo
+            \'>Add New Todo</a></li><li><a href=\'logout-page.php\' title=\'Logout Page\'>Log Out</a></li>');
+          } else {
+            echo('<li><a class=\'active\' href=\'login-page.php\' title=\'Login Page\'>Log In</a></li>');
+          }?></li>
 				</ul>
 			</nav>
 		</header>
 		<main>
-      <h2>Put login form here...</h2>
-      <form id=login action="./assets/php/process-login-form.php" method="post">
+      <br><br><br><br>
+      <?php if(!$attempt == 0)
+      echo('<h2 class=\'error\'>Invalid Username and/or Password</h2>');?>
+      <form id=login action="login.php" method="post">
         <input type="hidden" name="form-sent" value="1" />
         <fieldset>
           <legend>Login credentials</legend>

@@ -1,21 +1,11 @@
 <?php
-//include_once ('database.php');
 
-$dsn = 'mysql:host=localhost:3307;dbname=comp1006_assignment1';
-$userName = 'root';
-$password = '';
-
-
-try
+//checks if cancel was selected and returns to todo-list if true
+if($_GET['submit'] == "cancel")
 {
-    // instantiates a new pdo - an db object
-    $db = new PDO($dsn, $userName, $password);
+  header('location: todo-list.php');
 }
-catch(PDOException $e)
-{
-    $message = $e->getMessage();
-    echo "An error occurred: " . $message;
-}
+include_once('database.php');
 
 $isAddition = filter_input(INPUT_POST, "isAddition");
 $todoName = filter_input(INPUT_POST, "nameTextField");

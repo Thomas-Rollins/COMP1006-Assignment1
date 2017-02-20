@@ -3,7 +3,7 @@ body {
 	font-size: 100%;
 	background-color: #34495E; /* Dark Blue-Grey */
 }
-
+/* Start of Global Nav related CSS */
 header {
 	position: fixed;
 	top:0;
@@ -20,6 +20,7 @@ header ul {
 	padding: 0;
 	overflow: hidden;
 	background-color: #6699CC; /* light grey blue */
+	margin-bottom: 4em;
 }
 header li {
 	float: left;
@@ -41,4 +42,32 @@ header li a:hover:not(.active) {
 
 .active {
 	background-color: #2121E6; /* Blue */
+}
+
+/* END of Global Nav related CSS */
+
+/*Start of Table CSS */
+table {
+	table-layout: fixed;
+	width: 90%;
+	border-collapse: collapse;
+	text-align: center;
+	margin-bottom: 1em;
+}
+table td {
+	border: solid 2px #F5F5F5;
+	max-width: 33%;
+	word-wrap: break-word;
+}
+
+table td.edit {
+	max-width: 10%;
+}
+
+table td.delete {
+	max-width: 10%;
+}
+
+table td.notes {
+	max-width: 70%;
 }
