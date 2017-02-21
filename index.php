@@ -1,13 +1,5 @@
 <?php
 include_once('http://comp1006-assignment1.azurewebsites.net/assets/php/session-info.php');
-// test
-
-$query = "SELECT * FROM todo_list WHERE userID =:userid ORDER BY id ASC"; // SQL statement
-$statement = $db->prepare($query); // encapsulate the sql statement
-$statement->bindValue(':userid', $login_session);
-$statement->execute(); // run on the db server
-$todo = $statement->fetchAll(); // returns an array
-$statement->closeCursor(); // close the connection
 ?>
 <!DOCTYPE html>
  <html lang="en-ca">
