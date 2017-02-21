@@ -1,5 +1,5 @@
 <?php
-include_once('http://comp1006-assignment1.azurewebsites.net/assets/php/session-info.php');
+include_once('http://comp1006-assignment1.azurewebsites.net/session-info.php');
 ?>
 <!DOCTYPE html>
  <html lang="en-ca">

@@ -1,6 +1,6 @@
 <?php
-include_once('http://comp1006-assignment1.azurewebsites.net/assets/php/session-info.php');
-include_once('http://comp1006-assignment1.azurewebsites.net/assets/php/database.php');
+include_once('http://comp1006-assignment1.azurewebsites.net/session-info.php');
+include_once('http://comp1006-assignment1.azurewebsites.net/database.php');
 
 if(!isset($_SESSION['login_user']))
 {
@@ -83,7 +83,7 @@ $statement->closeCursor(); // close the connection
 											echo('NO');
 										}?></td>
                       <td class="edit"><a class="btn btn-warning" href="http://comp1006-assignment1.azurewebsites.net/todo-details.php?todo_id=<?php echo $todo['id'] ?>"><i class=""></i> Edit</a></td>
-                      <td class="delete"><a class="btn btn-danger" href="http://comp1006-assignment1.azurewebsites.net/assets/php/delete-db-entry.php?todo_id=<?php echo $todo['id'] ?>"><i class=""></i> Delete</a></td>
+                      <td class="delete"><a class="btn btn-danger" href="http://comp1006-assignment1.azurewebsites.net/delete-db-entry.php?todo_id=<?php echo $todo['id'] ?>"><i class=""></i> Delete</a></td>
                   </tr>
               <?php endforeach; ?>
               <tr>

@@ -1,6 +1,6 @@
 <?php
-include_once('http://comp1006-assignment1.azurewebsites.net/assets/php/session-info.php');
-include_once('http://comp1006-assignment1.azurewebsites.net/assets/php/database.php');
+include_once('http://comp1006-assignment1.azurewebsites.net/session-info.php');
+include_once('http://comp1006-assignment1.azurewebsites.net/database.php');
 
 
 $todoID = $_GET['todo_id'];
@@ -49,7 +49,7 @@ if($todoID == 0) {
 
           <div class="container">
                       <h1>TODO Details</h1>
-                      <form action="http://comp1006-assignment1.azurewebsites.net/assets/php/update-db-entry.php" method="post" id="edit-todo">
+                      <form action="http://comp1006-assignment1.azurewebsites.net/update-db-entry.php" method="post" id="edit-todo">
                           <div class="form-group row">
                               <label for="IDTextField" class="col-lg-2 col-form-label" hidden>TODO ID</label>
                               <div class="col-sm-10">
