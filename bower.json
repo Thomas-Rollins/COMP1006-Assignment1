@@ -1,0 +1,25 @@
+{
+  "name": "COMP1006_Assignment 1",
+  "homepage": "https://github.com/Thomas-Rollins/COMP1006-Assignment1",
+  "authors": [
+    "Thomas Rollins <200344886@student.georgianc.on.ca>"
+  ],
+  "description": "",
+  "main": "index.php",
+  "keywords": [
+    "COMP1006"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.1.1",
+    "bootstrap": "^3.3.7"
+  }
+}

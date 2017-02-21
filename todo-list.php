@@ -1,15 +1,15 @@
 <?php
-include_once('session-info.php');
-include_once('database.php');
+include_once('http://comp1006-assignment1.azurewebsites.net/assets/php/session-info.php');
+include_once('http://comp1006-assignment1.azurewebsites.net/assets/php/database.php');
 
 if(!isset($_SESSION['login_user']))
 {
-	echo('You must Login to view this page.');
-  header('location: index.php');
+  header('location: http://comp1006-assignment1.azurewebsites.net/index.php');
 }
 
-$query = "SELECT * FROM todo_list ORDER BY id ASC"; // SQL statement
+$query = "SELECT * FROM todo_list WHERE userID =:userid ORDER BY id ASC"; // SQL statement
 $statement = $db->prepare($query); // encapsulate the sql statement
+$statement->bindValue(':userid', $login_session);
 $statement->execute(); // run on the db server
 $todo = $statement->fetchAll(); // returns an array
 $statement->closeCursor(); // close the connection
@@ -19,20 +19,25 @@ $statement->closeCursor(); // close the connection
  <html lang="en-ca">
  	<head>
  		<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Todo List</title>
-		<link rel="stylesheet" href="assets/css/styles.css" />
+
+    <script src="http://comp1006-assignment1.azurewebsites.net/assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://comp1006-assignment1.azurewebsites.net/assets/css/styles.css" />
+
 	</head>
 	<body>
 		<header id="global-nav">
 			<nav id="global">
 				<ul class="nav">
-					<li><a href="index.php" title="Home Page">Home Page</a></li>
-					<li><a class="active" href="todo-list.php" title="Todo List">Todo List</a></li>
-					<li><a href="todo-details.php?todo_id=0" title="Add new Todo">Add New Todo</a></li>
+					<li><a href="http://comp1006-assignment1.azurewebsites.net/index.php" title="Home Page">Home Page</a></li>
+					<li><a class="active" href="http://comp1006-assignment1.azurewebsites.net/todo-list.php" title="Todo List">Todo List</a></li>
+					<li><a href="http://comp1006-assignment1.azurewebsites.net/todo-details.php?todo_id=0" title="Add new Todo">Add New Todo</a></li>
 					<li><?php if(!isset($login_session)){
-            echo('<a href=\'login-page.php\' title=\'Login Page\'>Log In</a>');
+            echo('<a href=\'http://comp1006-assignment1.azurewebsites.net/login-page.php\' title=\'Login Page\'>Log In</a>');
           }else {
-              echo('<a href=\'logout-page.php\' title=\'Logout Page\'>Log Out</a>');
+              echo('<a href=\'http://comp1006-assignment1.azurewebsites.net/logout-page.php\' title=\'Logout Page\'>Log Out</a>');
             }?></li>
 				</ul>
 			</nav>
@@ -42,17 +47,24 @@ $statement->closeCursor(); // close the connection
 				<article>
           <br><br><br><br> <!-- force newlines -->
           <h1>Welcome: <i><?php echo $login_session; ?></i></h1>
-          <table>
-              <tr>
-                  <th>Name</th>
-                  <th>Notes</th>
-                  <th>Completed</th>
-                  <th></th>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6 col-md-offset-3">
+                <table class="table table-inverse">
+                  <thread>
+                    <tr>
+                      <th>Name</th>
+                      <th>Notes</th>
+                      <th>Completed</th>
+                      <th> </th>
+                      <th> </th>
               </tr>
+            </thread>
+            <tbody>
               <?php foreach($todo as $todo) : ?>
                   <tr>
 										<?php if($todo['completed'] == 1){
-											echo('</del><td><del>');
+											echo('</del><td><del>'); // strikes through text if listed as completed
 										} else {
 											echo('<td>');
 										}?><?php echo $todo['name'] ?></td>
@@ -70,14 +82,20 @@ $statement->closeCursor(); // close the connection
 										} else {
 											echo('NO');
 										}?></td>
-                      <td class="edit"><a href="todo-details.php?todo_id=<?php echo $todo['id'] ?>"><i class=""></i> Edit</a></td>
-                      <td class="delete"><a href="delete-db-entry.php?todo_id=<?php echo $todo['id'] ?>"><i class=""></i> Delete</a></td>
+                      <td class="edit"><a class="btn btn-warning" href="http://comp1006-assignment1.azurewebsites.net/todo-details.php?todo_id=<?php echo $todo['id'] ?>"><i class=""></i> Edit</a></td>
+                      <td class="delete"><a class="btn btn-danger" href="http://comp1006-assignment1.azurewebsites.net/assets/php/delete-db-entry.php?todo_id=<?php echo $todo['id'] ?>"><i class=""></i> Delete</a></td>
                   </tr>
               <?php endforeach; ?>
-
+              <tr>
+                <td colspan="5"><a class="btn btn-primary" id="newEntry" href="http://comp1006-assignment1.azurewebsites.net/todo-details.php?todo_id=0">Add new Entry</a>
+                </td>
+              </tr>
+            </tbody>
           </table>
+        </div>
+      </div>
+    </div>
 
-          <a class="add new entry" id="newEntry" href="todo-details.php?todo_id=0">Add new Entry</a>
 				</article>
 			</section>
 		</main>
