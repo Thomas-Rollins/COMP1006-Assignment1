@@ -12,3 +12,4 @@ catch(PDOException $e) {
     $message = $e->getMessage();
     echo "An error occurred: " . $message;
 }
+?>
