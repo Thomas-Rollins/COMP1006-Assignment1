@@ -1,5 +1,5 @@
 <?php
-include_once('database.php');
+include_once('http://comp1006-assignment1.azurewebsites.net/assets/php/database.php');
 
 $isAddition = filter_input(INPUT_POST, "isAddition");
 $todoName = filter_input(INPUT_POST, "nameTextField");

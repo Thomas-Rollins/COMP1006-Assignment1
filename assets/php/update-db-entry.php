@@ -5,7 +5,7 @@ if($_GET['submit'] == "cancel")
 {
   header('location: http://comp1006-assignment1.azurewebsites.net/todo-list.php');
 }
-include_once('http://comp1006-assignment1.azurewebsites.net/database.php');
+include_once('http://comp1006-assignment1.azurewebsites.net/assets/php/database.php');
 
 $isAddition = filter_input(INPUT_POST, "isAddition");
 $todoName = filter_input(INPUT_POST, "nameTextField");
