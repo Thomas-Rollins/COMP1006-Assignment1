@@ -10,6 +10,6 @@ try {
 }
 catch(PDOException $e) {
     $message = $e->getMessage();
-    echo "An error occurred: " . $message;
+    echo("An error occurred: " . $message);
 }
 ?>
