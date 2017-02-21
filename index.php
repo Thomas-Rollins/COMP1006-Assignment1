@@ -1,19 +1,6 @@
 <?php
 include_once('http://comp1006-assignment1.azurewebsites.net/assets/php/session-info.php');
 // test
-$dsn = 'mysql:us-cdbr-azure-northcentral-b.cloudapp.net;dbname=comp1006_assignment1';
-$userName = 'b9e8f2c430a4ad';
-$password = 'b54eca3a';
-
-
-try {
-    // instantiates a new pdo - an db object
-    $db = new PDO($dsn, $userName, $password);
-}
-catch(PDOException $e) {
-    $message = $e->getMessage();
-    echo "An error occurred: " . $message;
-}
 
 $query = "SELECT * FROM todo_list WHERE userID =:userid ORDER BY id ASC"; // SQL statement
 $statement = $db->prepare($query); // encapsulate the sql statement
