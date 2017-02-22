@@ -25,6 +25,7 @@ if($isAddition == "1")
 {
 	$query = "INSERT INTO todo_list (userID, name, notes, completed) VALUES (:userID, :todo_name, :todo_notes, :todo_isComplete)";
 	$statement = $db->prepare($query);
+  $statement->bindValue(':userID', $login_session);
 } else
 {
 	$todoID = filter_input(INPUT_POST, "idTextField");
@@ -32,7 +33,6 @@ if($isAddition == "1")
 	$statement = $db->prepare($query);
 	$statement->bindValue(':todo_id', $todoID);
 }
-$statement->bindValue(':userID', $login_session);
 $statement->bindValue(':todo_name', $todoName);
 $statement->bindValue(':todo_notes', $todoNotes);
 $statement->bindValue(':todo_isComplete', $todoIsComplete);
