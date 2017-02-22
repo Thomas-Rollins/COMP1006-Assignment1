@@ -16,8 +16,8 @@ $statement->closeCursor(); // close the connection
 if($login['username'] == $username)  //due to how the table is set up the username must be distinct
  {
    $_SESSION['login_user'] = $username;
-   header('location: http://comp1006-assignment1.azurewebsites.net/todo-list.php');
+   header('location: todo-list.php');
  }else {
-	header('location: http://comp1006-assignment1.azurewebsites.net/login-page.php?attempt=1');
+	header('location: login-page.php?attempt=1');
 }
  ?>

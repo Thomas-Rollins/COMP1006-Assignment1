@@ -1,6 +1,6 @@
 <?php
-include_once('http://comp1006-assignment1.azurewebsites.net/session-info.php');
-include_once('http://comp1006-assignment1.azurewebsites.net/database.php');
+include_once('session-info.php');
+include_once('database.php');
 
 if(!isset($_SESSION['login_user']))
 {
@@ -24,20 +24,20 @@ $statement->closeCursor(); // close the connection
     <script src="http://comp1006-assignment1.azurewebsites.net/assets/lib/jquery/dist/jquery.min.js"></script>
     <script src="http://comp1006-assignment1.azurewebsites.net/assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/css/bootstrap.min.css">
-    <link rel="stylesheet" href="http://comp1006-assignment1.azurewebsites.net/assets/css/styles.css" />
+    <link rel="stylesheet" href="./assets/css/styles.css" />
 
 	</head>
 	<body>
 		<header id="global-nav">
 			<nav id="global">
 				<ul class="nav">
-					<li><a href="http://comp1006-assignment1.azurewebsites.net/index.php" title="Home Page">Home Page</a></li>
-					<li><a class="active" href="http://comp1006-assignment1.azurewebsites.net/todo-list.php" title="Todo List">Todo List</a></li>
-					<li><a href="http://comp1006-assignment1.azurewebsites.net/todo-details.php?todo_id=0" title="Add new Todo">Add New Todo</a></li>
+					<li><a href="index.php" title="Home Page">Home Page</a></li>
+					<li><a class="active" href="todo-list.php" title="Todo List">Todo List</a></li>
+					<li><a href="todo-details.php?todo_id=0" title="Add new Todo">Add New Todo</a></li>
 					<li><?php if(!isset($login_session)){
-            echo('<a href=\'http://comp1006-assignment1.azurewebsites.net/login-page.php\' title=\'Login Page\'>Log In</a>');
+            echo('<a href=\'login-page.php\' title=\'Login Page\'>Log In</a>');
           }else {
-              echo('<a href=\'http://comp1006-assignment1.azurewebsites.net/logout-page.php\' title=\'Logout Page\'>Log Out</a>');
+              echo('<a href=\'logout-page.php\' title=\'Logout Page\'>Log Out</a>');
             }?></li>
 				</ul>
 			</nav>
