@@ -1,5 +1,5 @@
 <?php
-include_once('http://comp1006-assignment1.azurewebsites.net/database.php');
+include_once('database.php');
 session_start();
 
 $username = filter_input(INPUT_POST, "username");

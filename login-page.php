@@ -40,7 +40,7 @@ if(isset($_GET['attempt']))
       <?php if(!$attempt == 0)
       echo('<h2 class=\'error\'>Invalid Username and/or Password</h2>');?>
       <div class="container">
-      <form id=login action="http://comp1006-assignment1.azurewebsites.net/login.php" method="post">
+      <form id=login action="login.php" method="post">
         <input type="hidden" name="form-sent" value="1" />
         <fieldset>
           <legend>Login Credentials</legend>
