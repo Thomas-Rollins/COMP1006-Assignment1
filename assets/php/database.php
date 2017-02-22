@@ -1,5 +1,5 @@
 <?php
-$dsn = 'mysql:host=us-cdbr-azure-northcentral-b.cloudapp.net;dbname=comp1006_assignment1';
+$dsn = 'mysql:host=us-cdbr-azure-northcentral-b.cloudapp.net:3306;dbname=comp1006_assignment1';
 $username = 'b9e8f2c430a4ad';
 $password = 'b54eca3a';
 
