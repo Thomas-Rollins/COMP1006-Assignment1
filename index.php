@@ -6,8 +6,6 @@ include_once('./assets/php/session-info.php');
  	<head>
  		<meta charset="utf-8" />
 		<title>COMP1006 Assignment 1</title>
-    <script src="./assets/lib/jquery/dist/jquery.min.js"></script>
-    <script src="./assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/css/bootstrap.min.css">
     <link rel="stylesheet" href="./assets/css/styles.css" />
 	</head>
@@ -40,4 +38,6 @@ include_once('./assets/php/session-info.php');
 			</section>
 		</main>
 	</body>
+  <script src="./assets/lib/jquery/dist/jquery.min.js"></script>
+  <script src="./assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
 </html>
