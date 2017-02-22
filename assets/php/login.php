@@ -1,6 +1,6 @@
 <?php
 
-include_once('./assets/php/database.php');
+include_once('database.php');
 session_start();
 
 
