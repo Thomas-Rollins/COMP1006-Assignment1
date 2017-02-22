@@ -1,6 +1,6 @@
 <?php
 
-include_once('http://comp1006-assignment1.azurewebsites.net/assets/php/database.php');
+include_once('./assets/php/database.php');
 session_start();
 
 
