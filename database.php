@@ -1,7 +1,7 @@
 <?php
-$dsn = 'mysql:host=us-cdbr-azure-northcentral-b.cloudapp.net:3306;dbname=comp1006_assignment1';
-$userName = 'b9e8f2c430a4ad';
-$password = 'b54eca3a';
+$dsn = 'mysql:host=us-cdbr-azure-northcentral-b.cloudapp.net;dbname=comp1006_lessons';
+$userName = 'bb8dcf303771fa';
+$password = 'b2eaac46';
 
 
 try {
