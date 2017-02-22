@@ -1,3 +1,10 @@
+<!--
+@author Thomas Rollins
+comp1006_assignment1
+todo list page -> Reads the database and displays the relevant records based on
+who is logged in.
+-->
+
 <?php
 include_once('./assets/php/session-info.php');
 include_once('./assets/php/database.php');
@@ -21,12 +28,9 @@ $statement->closeCursor(); // close the connection
  		<meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Todo List</title>
-    <script src="./assets/lib/jquery/dist/jquery.min.js"></script>
-    <script src="./assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/css/bootstrap.min.css">
     <link rel="stylesheet" href="./assets/css/styles.css" />
-
-	</head>
+  </head>
 	<body>
 		<header id="global-nav">
 			<nav id="global">
@@ -58,46 +62,50 @@ $statement->closeCursor(); // close the connection
                       <th>Completed</th>
                       <th> </th>
                       <th> </th>
-              </tr>
-            </thread>
-            <tbody>
-              <?php foreach($todo as $todo) : ?>
-                  <tr>
-										<?php if($todo['completed'] == 1){
-											echo('</del><td><del>'); // strikes through text if listed as completed
-										} else {
-											echo('<td>');
-										}?><?php echo $todo['name'] ?></td>
-										<?php if($todo['completed'] == 1){
-											echo('</del><td><del>');
-										} else {
-											echo('<td class=\'notes\'>');
-										}?><?php echo $todo['notes'] ?></td>
-										<?php if($todo['completed'] == 1){
-											echo('</del><td class=\'complete\'>');
-										} else {
-											echo('<td>');
-										}?><?php if($todo['completed'] == 1){
-											echo('YES');
-										} else {
-											echo('NO');
-										}?></td>
-                      <td class="edit"><a class="btn btn-warning" href="todo-details.php?todo_id=<?php echo $todo['id'] ?>"><i class=""></i> Edit</a></td>
-                      <td class="delete"><a class="btn btn-danger" href="./assets/php/delete-db-entry.php?todo_id=<?php echo $todo['id'] ?>"><i class=""></i> Delete</a></td>
-                  </tr>
-              <?php endforeach; ?>
-              <tr>
-                <td colspan="5"><a class="btn btn-primary" id="newEntry" href="todo-details.php?todo_id=0">Add new Entry</a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-
-				</article>
+                    </tr>
+                  </thread>
+                  <tbody>
+                    <?php foreach($todo as $todo) : ?>
+                      <tr>
+										    <?php if($todo['completed'] == 1){
+											    echo('</del><td><del>'); // strikes through text if listed as completed
+										    } else {
+											    echo('<td>');
+  										}?>
+                      <?php echo $todo['name'] ?></td>
+  										<?php if($todo['completed'] == 1){
+  											echo('</del><td><del>');
+  										} else {
+  											echo('<td class=\'notes\'>');
+  										}?>
+                      <?php echo $todo['notes'] ?></td>
+  										<?php if($todo['completed'] == 1){
+  											echo('</del><td class=\'complete\'>');
+  										} else {
+  											echo('<td>');
+  										}?>
+                      <?php if($todo['completed'] == 1){
+  											echo('YES');
+  										} else {
+  											echo('NO');
+  										}?></td>
+                        <td class="edit"><a class="btn btn-warning" href="todo-details.php?todo_id=<?php echo $todo['id'] ?>"><i class=""></i> Edit</a></td>
+                        <td class="delete"><a class="btn btn-danger" href="./assets/php/delete-db-entry.php?todo_id=<?php echo $todo['id'] ?>"><i class=""></i> Delete</a></td>
+                      </tr>
+                    <?php endforeach; ?>
+                    <tr>
+                      <td colspan="5"><a class="btn btn-primary" id="newEntry" href="todo-details.php?todo_id=0">Add new Entry</a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </article>
 			</section>
 		</main>
 	</body>
+  <script src="./assets/lib/jquery/dist/jquery.min.js"></script>
+  <script src="./assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
 </html>

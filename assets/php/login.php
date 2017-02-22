@@ -1,8 +1,13 @@
+<!--
+@author Thomas Rollins
+comp1006_assignment1
+contains the main login php script
+-->
+
 <?php
 
 include_once('database.php');
 session_start();
-
 
 $userName = filter_input(INPUT_POST, "username");
 $passWord = filter_input(INPUT_POST, "password");
@@ -20,6 +25,6 @@ if($login['username'] == $userName)  //due to how the table is set up the userna
    $_SESSION['login_user'] = $userName;
    header('location: http://comp1006-assignment1.azurewebsites.net/todo-list.php');
  }else {
-	header('location: http://comp1006-assignment1.azurewebsites.net/login-page.php?attempt=1');
+   header('location: http://comp1006-assignment1.azurewebsites.net/login-page.php?attempt=1');
 }
  ?>

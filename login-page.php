@@ -1,3 +1,9 @@
+<!--
+@author Thomas Rollins
+comp1006_assignment1
+login page containin the form to login
+-->
+
 <?php
 
 if(isset($_SESSION['login_user'])){
@@ -61,12 +67,6 @@ if(isset($_GET['attempt']))
       </div>
       </form>
     </div>
-
-			<section>
-				<article>
-
-				</article>
-			</section>
 		</main>
 	</body>
   <script src="./assets/lib/jquery/dist/jquery.min.js"></script>

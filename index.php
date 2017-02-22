@@ -1,3 +1,9 @@
+<!--
+@author Thomas Rollins
+comp1006_assignment1
+Home/landing Page
+-->
+
 <?php
 include_once('./assets/php/session-info.php');
 ?>

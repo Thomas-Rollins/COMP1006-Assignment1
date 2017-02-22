@@ -1,4 +1,11 @@
+<!--
+@author Thomas Rollins
+comp1006_assignment1
+contains the connection code used each time the database is queried.
+-->
+
 <?php
+// Azure Database Connection settings
 $dsn = 'mysql:host=us-cdbr-azure-northcentral-b.cloudapp.net;dbname=comp1006_assignment1';
 $userName = 'b9e8f2c430a4ad';
 $password = 'b54eca3a';

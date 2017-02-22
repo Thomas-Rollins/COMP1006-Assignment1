@@ -1,3 +1,9 @@
+<!--
+@author Thomas Rollins
+comp1006_assignment1
+contains the main php script to modifty the database records.
+-->
+
 <?php
 
 //checks if cancel was selected and returns to todo-list if true
@@ -5,6 +11,7 @@ if($_GET['submit'] == "cancel")
 {
   header('location: ../../todo-list.php');
 }
+// Includes -->
 include_once('database.php');
 include_once('session-info.php');
 
