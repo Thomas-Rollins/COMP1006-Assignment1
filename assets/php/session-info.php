@@ -1,6 +1,5 @@
 <?php
-
-include_once('http://comp1006-assignment1.azurewebsites.net/database.php');
+include_once('database.php');
 session_start();
 if(isset($_SESSION['login_user']))
 {

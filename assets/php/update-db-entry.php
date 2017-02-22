@@ -3,9 +3,10 @@
 //checks if cancel was selected and returns to todo-list if true
 if($_GET['submit'] == "cancel")
 {
-  header('location: http://comp1006-assignment1.azurewebsites.net/todo-list.php');
+  header('location: ../../todo-list.php');
 }
-include_once('http://comp1006-assignment1.azurewebsites.net/database.php');
+include_once('database.php');
+include_once('session-info.php');
 
 $isAddition = filter_input(INPUT_POST, "isAddition");
 $todoName = filter_input(INPUT_POST, "nameTextField");
@@ -22,7 +23,7 @@ else {
 
 if($isAddition == "1")
 {
-	$query = "INSERT INTO todo_list (name, notes, completed) VALUES (:todo_name, :todo_notes, :todo_isComplete)";
+	$query = "INSERT INTO todo_list (userID, name, notes, completed) VALUES (:userID, :todo_name, :todo_notes, :todo_isComplete)";
 	$statement = $db->prepare($query);
 } else
 {
@@ -31,7 +32,7 @@ if($isAddition == "1")
 	$statement = $db->prepare($query);
 	$statement->bindValue(':todo_id', $todoID);
 }
-
+$statement->bindValue(':userID', $login_session);
 $statement->bindValue(':todo_name', $todoName);
 $statement->bindValue(':todo_notes', $todoNotes);
 $statement->bindValue(':todo_isComplete', $todoIsComplete);

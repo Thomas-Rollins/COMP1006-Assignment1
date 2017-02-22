@@ -1,5 +1,5 @@
 <?php
-include_once('http://comp1006-assignment1.azurewebsites.net/database.php');
+include_once('database.php');
 
 $todoID = $_GET['todo_id'];
 
@@ -15,6 +15,6 @@ $todoID = $_GET['todo_id'];
   $todo = $statement->fetchAll(); // returns an array
   $statement->closeCursor(); // close the connection
 
-include_once('http://comp1006-assignment1.azurewebsites.net/todo-list.php'); // prevents need for redirect and updates table
+header('location: ../../todo-list.php'); // prevents need for redirect and updates table
 
 ?>

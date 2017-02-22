@@ -9,8 +9,7 @@ if(isset($_GET['attempt']))
 } else {
   $attempt = 0;
 }
-
- ?>
+?>
 
 <!DOCTYPE html>
  <html lang="en-ca">
@@ -18,7 +17,7 @@ if(isset($_GET['attempt']))
  		<meta charset="utf-8" />
 		<title>Login</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/css/bootstrap.min.css">
-    <link rel="stylesheet" href="http://comp1006-assignment1.azurewebsites.net/assets/css/styles.css" />
+    <link rel="stylesheet" href="./assets/css/styles.css" />
 	</head>
 	<body>
 		<header id="global-nav">
@@ -26,11 +25,11 @@ if(isset($_GET['attempt']))
 				<ul class="nav">
 					<li><a href="index.php" title="Home Page">Home Page</a></li>
           <?php if(isset($login_session)){
-            echo('<li><a href=\'http://comp1006-assignment1.azurewebsites.net/todo-list.php\' title=\'Todo List\'>Todo List</a></li>
-  					<li><a href=\'http://comp1006-assignment1.azurewebsites.net/todo-details.php?todo_id=0\' title=\'Add new Todo
-            \'>Add New Todo</a></li><li><a href=\'http://comp1006-assignment1.azurewebsites.net/logout-page.php\' title=\'Logout Page\'>Log Out</a></li>');
+            echo('<li><a href=\'./todo-list.php\' title=\'Todo List\'>Todo List</a></li>
+  					<li><a href=\'todo-details.php?todo_id=0\' title=\'Add new Todo
+            \'>Add New Todo</a></li><li><a href=\'./logout-page.php\' title=\'Logout Page\'>Log Out</a></li>');
           } else {
-            echo('<li><a class=\'active\' href=\'http://comp1006-assignment1.azurewebsites.net/login-page.php\' title=\'Login Page\'>Log In</a></li>');
+            echo('<li><a class=\'active\' href=\'./login-page.php\' title=\'Login Page\'>Log In</a></li>');
           }?></li>
 				</ul>
 			</nav>
@@ -40,7 +39,7 @@ if(isset($_GET['attempt']))
       <?php if(!$attempt == 0)
       echo('<h2 class=\'error\'>Invalid Username and/or Password</h2>');?>
       <div class="container">
-      <form id=login action="login.php" method="post">
+      <form id=login action="./assets/php/login.php" method="post">
         <input type="hidden" name="form-sent" value="1" />
         <fieldset>
           <legend>Login Credentials</legend>
@@ -70,6 +69,6 @@ if(isset($_GET['attempt']))
 			</section>
 		</main>
 	</body>
-  <script src="http://comp1006-assignment1.azurewebsites.net/assets/lib/jquery/dist/jquery.min.js"></script>
-  <script src="http://comp1006-assignment1.azurewebsites.net/assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="./assets/lib/jquery/dist/jquery.min.js"></script>
+  <script src="./assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
 </html>

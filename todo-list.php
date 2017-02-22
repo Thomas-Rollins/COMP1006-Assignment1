@@ -1,10 +1,10 @@
 <?php
-include_once('session-info.php');
-include_once('database.php');
+include_once('./assets/php/session-info.php');
+include_once('./assets/php/database.php');
 
 if(!isset($_SESSION['login_user']))
 {
-  header('location: http://comp1006-assignment1.azurewebsites.net/index.php');
+  header('location: index.php');
 }
 
 $query = "SELECT * FROM todo_list WHERE userID =:userid ORDER BY id ASC"; // SQL statement
@@ -21,8 +21,8 @@ $statement->closeCursor(); // close the connection
  		<meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Todo List</title>
-    <script src="http://comp1006-assignment1.azurewebsites.net/assets/lib/jquery/dist/jquery.min.js"></script>
-    <script src="http://comp1006-assignment1.azurewebsites.net/assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="./assets/lib/jquery/dist/jquery.min.js"></script>
+    <script src="./assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/css/bootstrap.min.css">
     <link rel="stylesheet" href="./assets/css/styles.css" />
 
@@ -82,12 +82,12 @@ $statement->closeCursor(); // close the connection
 										} else {
 											echo('NO');
 										}?></td>
-                      <td class="edit"><a class="btn btn-warning" href="http://comp1006-assignment1.azurewebsites.net/todo-details.php?todo_id=<?php echo $todo['id'] ?>"><i class=""></i> Edit</a></td>
-                      <td class="delete"><a class="btn btn-danger" href="http://comp1006-assignment1.azurewebsites.net/delete-db-entry.php?todo_id=<?php echo $todo['id'] ?>"><i class=""></i> Delete</a></td>
+                      <td class="edit"><a class="btn btn-warning" href="todo-details.php?todo_id=<?php echo $todo['id'] ?>"><i class=""></i> Edit</a></td>
+                      <td class="delete"><a class="btn btn-danger" href="./assets/php/delete-db-entry.php?todo_id=<?php echo $todo['id'] ?>"><i class=""></i> Delete</a></td>
                   </tr>
               <?php endforeach; ?>
               <tr>
-                <td colspan="5"><a class="btn btn-primary" id="newEntry" href="http://comp1006-assignment1.azurewebsites.net/todo-details.php?todo_id=0">Add new Entry</a>
+                <td colspan="5"><a class="btn btn-primary" id="newEntry" href="todo-details.php?todo_id=0">Add new Entry</a>
                 </td>
               </tr>
             </tbody>
